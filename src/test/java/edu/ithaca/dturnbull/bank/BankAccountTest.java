@@ -26,6 +26,9 @@ class BankAccountTest {
     void isEmailValidTest(){
         assertTrue(BankAccount.isEmailValid( "a@b.com"));   // valid email address
         assertFalse( BankAccount.isEmailValid(""));         // empty string
+        assertFalse(BankAccount.isEmailValid("a..b@gmail.com")); //should not have two consecutive dots
+        assertFalse(BankAccount.isEmailValid("gb@@mail.com")); // should ot contain more than one '@''
+        assertFalse(BankAccount.isEmailValid(".hello@mail.com")); //prefix should not start with a special character
 
         
     }
