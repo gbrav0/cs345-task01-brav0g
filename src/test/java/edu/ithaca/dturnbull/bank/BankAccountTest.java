@@ -25,12 +25,16 @@ class BankAccountTest {
     @Test
     void isEmailValidTest(){
         assertTrue(BankAccount.isEmailValid( "a@b.com"));   // valid email address
-        assertFalse( BankAccount.isEmailValid(""));         // empty string
+        
+        assertFalse(BankAccount.isEmailValid(""));         // empty string
         assertFalse(BankAccount.isEmailValid("a..b@gmail.com")); //should not have two consecutive dots
-        assertFalse(BankAccount.isEmailValid("gb@@mail.com")); // should ot contain more than one '@''
+        assertFalse(BankAccount.isEmailValid("gb@@mail.com")); // should not contain more than one '@''
         assertFalse(BankAccount.isEmailValid(".hello@mail.com")); //prefix should not start with a special character
 
-        
+        //test push 
+        assertTrue(BankAccount.isEmailValid("g.b@domain.com")); // valid with dots 
+        assertTrue(BankAccount.isEmailValid("g_bravo@mail.test.com")); // valid with underscores and subdomains
+        assertTrue(BankAccount.isEmailValid("g123@domain.com")); // valid with numbers
     }
 
     @Test
